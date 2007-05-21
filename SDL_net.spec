@@ -1,6 +1,6 @@
 %define name SDL_net
 %define version 1.2.6
-%define release %mkrel 1
+%define release %mkrel 2
 %define lib_name_orig lib%{name}
 %define lib_major 1.2
 %define lib_name %mklibname %name %{lib_major}
@@ -82,5 +82,3 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/SDL/*
 %{_libdir}/lib*.so
 %{_libdir}/*a
-
-
