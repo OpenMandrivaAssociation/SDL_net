@@ -1,6 +1,6 @@
 %define name SDL_net
-%define version 1.2.6
-%define release %mkrel 2
+%define version 1.2.7
+%define release %mkrel 1
 %define lib_name_orig lib%{name}
 %define lib_major 1.2
 %define lib_name %mklibname %name %{lib_major}
@@ -19,7 +19,7 @@ BuildRequires:	XFree86-devel
 BuildRequires:	alsa-lib-devel
 BuildRequires:	esound-devel
 BuildRequires:	texinfo
-BuildRequires:  automake1.8
+BuildRequires:  automake
 
 %description
 This is an example portable network library for use with SDL. Note that this
@@ -51,12 +51,13 @@ applications which will use %{name}.
 
 %prep
 %setup -q
-rm -f configure
-aclocal-1.8
-autoconf
-automake-1.8 -a -c --foreign
 
 %build
+rm -f configure
+aclocal
+autoconf
+automake -a -c --foreign
+
 %configure2_5x
 %make
 
