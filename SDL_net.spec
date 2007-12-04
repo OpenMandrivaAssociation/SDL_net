@@ -15,7 +15,7 @@ Group: System/Libraries
 BuildRoot: %{_tmppath}/%{name}-buildroot
 URL: http://www.libsdl.org/projects/SDL_net/
 BuildRequires:	SDL-devel >= 1.2
-BuildRequires:	XFree86-devel
+BuildRequires:	X11-devel
 BuildRequires:	alsa-lib-devel
 BuildRequires:	esound-devel
 BuildRequires:	texinfo
