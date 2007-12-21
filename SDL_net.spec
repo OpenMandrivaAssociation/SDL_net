@@ -12,6 +12,7 @@ Release: %{release}
 Source0: http://www.libsdl.org/projects/SDL_net/release/%{name}-%{version}.tar.bz2
 License: LGPL
 Group: System/Libraries
+BuildRoot: %{_tmppath}/%{name}-buildroot
 URL: http://www.libsdl.org/projects/SDL_net/
 BuildRequires:	SDL-devel >= 1.2
 BuildRequires:	X11-devel
