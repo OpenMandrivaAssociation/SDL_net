@@ -6,7 +6,7 @@
 Summary:	Simple DirectMedia Layer - network
 Name:		SDL_net
 Version:	1.2.7
-Release:	%mkrel 2
+Release:	%mkrel 3
 License:	LGPLv2+
 Group:		System/Libraries
 URL:		http://www.libsdl.org/projects/SDL_net/
@@ -25,6 +25,7 @@ demonstrates how to use the basic features of the network and GUI libraries.
 %package -n %{libname}
 Summary:	Main library for %{name}
 Group:		System/Libraries
+Obsoletes:	%{_lib}SDL_net1.2 < 1.2.7-2
 
 %description -n %{libname}
 This package contains the library needed to run programs dynamically
@@ -36,8 +37,8 @@ Group:		Development/C
 Requires:	%{libname} = %{version}-%{release}
 Requires:	libSDL-devel
 Provides:	lib%{name}-devel = %{version}-%{release}
-Obsoletes:	%mklibname %{name} 1.2 -d
-Provides:	%mklibname %{name} 1.2 -d
+Provides:	%{name}-devel = %{version}-%{release}
+Obsoletes:	%{_lib}SDL_net1.2-devel < 1.2.7-2
 
 %description -n %{develname}
 This package contains the headers that programmers will need to develop
