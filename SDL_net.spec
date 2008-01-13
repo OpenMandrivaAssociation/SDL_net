@@ -1,51 +1,45 @@
-%define name SDL_net
-%define version 1.2.7
-%define release %mkrel 1
-%define lib_name_orig lib%{name}
-%define lib_major 1.2
-%define lib_name %mklibname %name %{lib_major}
+%define major 0
+%define apiver 1.2
+%define libname %mklibname %{name} %{apiver} %{major}
+%define develname %mklibname %{name} -d
 
-Summary: Simple DirectMedia Layer - network
-Name: %{name}
-Version: %{version}
-Release: %{release}
-Source0: http://www.libsdl.org/projects/SDL_net/release/%{name}-%{version}.tar.bz2
-License: LGPL
-Group: System/Libraries
-BuildRoot: %{_tmppath}/%{name}-buildroot
-URL: http://www.libsdl.org/projects/SDL_net/
+Summary:	Simple DirectMedia Layer - network
+Name:		SDL_net
+Version:	1.2.7
+Release:	%mkrel 2
+License:	LGPLv2+
+Group:		System/Libraries
+URL:		http://www.libsdl.org/projects/SDL_net/
+Source0:	http://www.libsdl.org/projects/SDL_net/release/%{name}-%{version}.tar.bz2
 BuildRequires:	SDL-devel >= 1.2
 BuildRequires:	X11-devel
-BuildRequires:	alsa-lib-devel
-BuildRequires:	esound-devel
+BuildRequires:	libalsa-devel
 BuildRequires:	texinfo
-BuildRequires:  automake
+BuildRoot:	%{_tmppath}/%{name}-buildroot
 
 %description
 This is an example portable network library for use with SDL. Note that this
 isn't necessarily how you would want to write a chat program, but it
 demonstrates how to use the basic features of the network and GUI libraries.
 
-%package -n %{lib_name}
-Summary: Main library for %{name}
-Group: System/Libraries
-Obsoletes: %{name}
-Provides: %{name}
+%package -n %{libname}
+Summary:	Main library for %{name}
+Group:		System/Libraries
 
-%description -n %{lib_name}
+%description -n %{libname}
 This package contains the library needed to run programs dynamically
 linked with %{name}.
 
-%package -n %{lib_name}-devel
-Summary: Headers for developing programs that will use %{name}
-Group: Development/C
-Requires: %{lib_name} = %{version}
-Requires: libSDL-devel
-Provides: %{lib_name_orig}-devel = %{version}-%{release}
-Obsoletes: %{name}-devel
-Provides: %{name}-devel
+%package -n %{develname}
+Summary:	Headers for developing programs that will use %{name}
+Group:		Development/C
+Requires:	%{libname} = %{version}-%{release}
+Requires:	libSDL-devel
+Provides:	lib%{name}-devel = %{version}-%{release}
+Obsoletes:	%mklibname %{name} 1.2 -d
+Provides:	%mklibname %{name} 1.2 -d
 
-%description -n %{lib_name}-devel
+%description -n %{develname}
 This package contains the headers that programmers will need to develop
 applications which will use %{name}.
 
@@ -62,22 +56,21 @@ automake -a -c --foreign
 %make
 
 %install
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 %makeinstall_std
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
-%post -n %{lib_name} -p /sbin/ldconfig
+%post -n %{libname} -p /sbin/ldconfig
 
-%postun -n %{lib_name} -p /sbin/ldconfig
+%postun -n %{libname} -p /sbin/ldconfig
 
-%files -n %{lib_name}
+%files -n %{libname}
 %defattr(-,root,root)
-%doc README CHANGES
-%{_libdir}/lib*.so.*
+%{_libdir}/lib*%{apiver}.so.%{major}*
 
-%files -n %{lib_name}-devel
+%files -n %{develname}
 %defattr(-,root,root)
 %doc README CHANGES
 %{_includedir}/SDL/*
