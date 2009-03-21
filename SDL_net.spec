@@ -48,11 +48,7 @@ applications which will use %{name}.
 %setup -q
 
 %build
-rm -f configure
-aclocal
-autoconf
-automake -a -c --foreign
-
+autoreconf -fi
 %configure2_5x
 %make
 
