@@ -48,7 +48,6 @@ applications which will use %{name}.
 %setup -q
 
 %build
-autoreconf -fi
 %configure2_5x
 %make
 
