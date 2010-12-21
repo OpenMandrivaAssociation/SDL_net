@@ -12,8 +12,6 @@ Group:		System/Libraries
 URL:		http://www.libsdl.org/projects/SDL_net/
 Source0:	http://www.libsdl.org/projects/SDL_net/release/%{name}-%{version}.tar.bz2
 BuildRequires:	SDL-devel >= 1.2
-BuildRequires:	X11-devel
-BuildRequires:	libalsa-devel
 BuildRequires:	texinfo
 BuildRoot:	%{_tmppath}/%{name}-buildroot
 
