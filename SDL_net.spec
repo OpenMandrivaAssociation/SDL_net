@@ -1,19 +1,18 @@
-%define major 0
-%define apiver 1.2
-%define libname %mklibname %{name} %{apiver} %{major}
-%define develname %mklibname %{name} -d
+%define		major 0
+%define		apiver 1.2
+%define		libname %mklibname %{name} %{apiver} %{major}
+%define		develname %mklibname %{name} -d
 
 Summary:	Simple DirectMedia Layer - network
 Name:		SDL_net
-Version:	1.2.7
-Release:	%mkrel 8
+Version:	1.2.8
+Release:	%mkrel 1
 License:	LGPLv2+
 Group:		System/Libraries
 URL:		http://www.libsdl.org/projects/SDL_net/
-Source0:	http://www.libsdl.org/projects/SDL_net/release/%{name}-%{version}.tar.bz2
+Source0:	http://www.libsdl.org/projects/SDL_net/release/%{name}-%{version}.tar.gz
 BuildRequires:	SDL-devel >= 1.2
 BuildRequires:	texinfo
-BuildRoot:	%{_tmppath}/%{name}-buildroot
 
 %description
 This is an example portable network library for use with SDL. Note that this
@@ -46,31 +45,25 @@ applications which will use %{name}.
 %setup -q
 
 %build
-%configure2_5x
+%configure2_5x --disable-static
 %make
 
 %install
-rm -rf %{buildroot}
+%__rm -rf %{buildroot}
 %makeinstall_std
 
 %clean
-rm -rf %{buildroot}
-
-%if %mdkversion < 200900
-%post -n %{libname} -p /sbin/ldconfig
-%endif
-
-%if %mdkversion < 200900
-%postun -n %{libname} -p /sbin/ldconfig
-%endif
+%__rm -rf %{buildroot}
 
 %files -n %{libname}
-%defattr(-,root,root)
 %{_libdir}/lib*%{apiver}.so.%{major}*
 
 %files -n %{develname}
-%defattr(-,root,root)
 %doc README CHANGES
 %{_includedir}/SDL/*
 %{_libdir}/lib*.so
-%{_libdir}/*a
+%{_libdir}/pkgconfig/*.pc
+%if %{mdvver} < 201200
+%{_libdir}/*.la
+%endif
+
