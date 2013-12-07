@@ -6,7 +6,7 @@
 Summary:	Simple DirectMedia Layer - network
 Name:		SDL_net
 Version:	1.2.8
-Release:	8
+Release:	9
 License:	LGPLv2+
 Group:		System/Libraries
 URL:		http://www.libsdl.org/projects/SDL_net/
