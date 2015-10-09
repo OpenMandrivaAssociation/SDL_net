@@ -2,6 +2,7 @@
 %define		apiver 1.2
 %define		libname %mklibname %{name} %{apiver} %{major}
 %define		develname %mklibname %{name} -d
+%define		_disable_lto 1
 
 Summary:	Simple DirectMedia Layer - network
 Name:		SDL_net
