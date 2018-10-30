@@ -7,7 +7,7 @@
 Summary:	Simple DirectMedia Layer - network
 Name:		SDL_net
 Version:	1.2.8
-Release:	15
+Release:	16
 License:	LGPLv2+
 Group:		System/Libraries
 URL:		http://www.libsdl.org/projects/SDL_net/
@@ -125,23 +125,23 @@ applications which will use %{name}.
 - rebuild
 
 
-* Sun Jan 28 2007 GÃ¶tz Waschk <waschk@mandriva.org> 1.2.6-1mdv2007.0
+* Sun Jan 28 2007 GÃƒÂ¶tz Waschk <waschk@mandriva.org> 1.2.6-1mdv2007.0
 + Revision: 114684
 - Import SDL_net
 
-* Sun Jan 28 2007 Götz Waschk <waschk@mandriva.org> 1.2.6-1mdv2007.1
+* Sun Jan 28 2007 GÃ¶tz Waschk <waschk@mandriva.org> 1.2.6-1mdv2007.1
 - rebuild
 
-* Fri May 19 2006 Götz Waschk <waschk@mandriva.org> 1.2.6-1mdk
+* Fri May 19 2006 GÃ¶tz Waschk <waschk@mandriva.org> 1.2.6-1mdk
 - source URL
 - new version
 
 * Sat Jan 07 2006 Mandriva Linux Team <http://www.mandrivaexpert.com/> 1.2.5-5mdk
 - Rebuild
 
-* Sat Nov 13 2004 Götz Waschk <waschk@linux-mandrake.com> 1.2.5-4mdk
+* Sat Nov 13 2004 GÃ¶tz Waschk <waschk@linux-mandrake.com> 1.2.5-4mdk
 - rebuild
 
-* Fri Jun 04 2004 Götz Waschk <waschk@linux-mandrake.com> 1.2.5-3mdk
+* Fri Jun 04 2004 GÃ¶tz Waschk <waschk@linux-mandrake.com> 1.2.5-3mdk
 - fix build
 
