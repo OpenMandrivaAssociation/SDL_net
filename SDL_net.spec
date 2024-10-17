@@ -10,7 +10,7 @@ Version:	1.2.8
 Release:	17
 License:	LGPLv2+
 Group:		System/Libraries
-URL:		http://www.libsdl.org/projects/SDL_net/
+URL:		https://www.libsdl.org/projects/SDL_net/
 Source0:	http://www.libsdl.org/projects/SDL_net/release/%{name}-%{version}.tar.gz
 BuildRequires:	pkgconfig(sdl)
 BuildRequires:	texinfo
